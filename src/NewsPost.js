@@ -8,7 +8,7 @@ class NewsPost extends React.Component {
             <div className="todo-container">
                 {news.map((item, index) => {
                     return (
-                        <p key={index} className="news-post">
+                        <p key={index+item} className="news-post">
                             {item}
                         </p>
                         );

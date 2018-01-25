@@ -10,30 +10,31 @@ class App extends React.Component {
     handleChange = e => {
         this.setState({ value: e.target.value });
     };
-    handleClick = e => {
+    handleNewPost = e => {
         e.preventDefault();
 
         let { value, news } = this.state;
 
-        news.push(value);
-        this.setState({ news });
-        this.setState({ value: "" });
+        this.setState({
+            value: "",
+            news: [...news, value]
+        })
     };
     render() {
         let { value, news } = this.state;
         return (
             <div>
-                <div className="wrapper">
+                <div className="wrapper App">
                     <input
                         type="text"
-                        className="input"
-                        placeholder="News"
+                        className="comment-input"
+                        placeholder=""
                         onChange={this.handleChange}
                         value={value}
                     />
                     <button
                         className={"button"}
-                        onClick={this.handleClick}
+                        onClick={this.handleNewPost}
                     >
                         Push
                     </button>
