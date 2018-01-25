@@ -1,17 +1,22 @@
 import React from 'react';
-import './NewsPost.css'
+import './NewsPost.css';
 
 class NewsPost extends React.Component {
     render() {
-    const text = this.props;
-        return(
-            <div>
-                <p>{text}</p>
+        let { news } = this.props;
+        return (
+            <div className="todo-container">
+                {news.map((item, index) => {
+                    return (
+                        <p key={index} className="news-post">
+                            {item}
+                        </p>
+                        );
+                    })
+                }
             </div>
-        )
+        );
     }
-} 
-    
-
+}
 
 export default NewsPost;
