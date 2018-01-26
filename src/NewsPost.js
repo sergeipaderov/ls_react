@@ -3,18 +3,12 @@ import './NewsPost.css';
 
 class NewsPost extends React.Component {
     render() {
-        let { news } = this.props;
+        let { key, text } = this.props;
         return (
-            <div className="todo-container">
-                {news.map((item, index) => {
-                    return (
-                        <p key={index+item} className="news-post">
-                            {item}
-                        </p>
-                        );
-                    })
-                }
-            </div>
+            <p key={key} className="news-post">
+                {text}
+            </p>                       
+                
         );
     }
 }

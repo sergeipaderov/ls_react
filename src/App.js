@@ -12,17 +12,16 @@ class App extends React.Component {
     };
     handleNewPost = e => {
         
-        let { value, news } = this.state;
-
-        //const _news = [...news, value];
+        let value = this.state.newsInput;
+        let news = this.state.news;
+        news.push({text: value})
         
         this.setState({
-            value: "",
-            news: [...news, value]
+            newsInput: "",
+            news: news
         })
     };
     render() {
-        let { value, news } = this.state;
         return (
             <div>
                 <div className="wrapper App">
@@ -31,7 +30,7 @@ class App extends React.Component {
                         className="comment-input"
                         placeholder=""
                         onChange={this.handleChange}
-                        value={value}
+                        value={this.state.newsInput}
                     />
                     <button
                         className={"button"}
@@ -40,7 +39,9 @@ class App extends React.Component {
                         Push
                     </button>
                 </div>
-                <NewsPost news={news} />                
+                <div className="todo-container">
+                    {this.state.news.map(item => <NewsPost key={item.text} text={item.text} />)}                    
+                </div>              
             </div>
         );
     }
