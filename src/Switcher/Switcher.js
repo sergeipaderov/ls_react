@@ -6,7 +6,7 @@ export default class Switcher extends Component {
 
   title = ["VideoPlayer", "Card number formating", "ModalButton"];
 
-  handlerClick = e => {
+  handleChangeChild = e => {
     this.setState({ selectedChild: e.target.dataset.id });
   };
 
@@ -29,7 +29,7 @@ export default class Switcher extends Component {
                   key={element + index}
                   className="component-list__name"
                   data-id={index}
-                  onClick={this.handlerClick}
+                  onClick={this.handleChangeChild}
                 >
                   {element}
                 </li>
